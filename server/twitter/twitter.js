@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const Strategy = require('passport-twitter').Strategy;
 require('../models/user.js');
 const User = mongoose.model('User');
-const Secret = require('./secret.js')
 
 passport.serializeUser((user, done)=>{
 	done(null, user.id);
