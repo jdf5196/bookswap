@@ -19,7 +19,7 @@ passport.deserializeUser((id, done)=>{
 passport.use(new Strategy({
 	consumerKey: process.env.consumerKey || Secret.consumer_key,
 	consumerSecret: process.env.consumerSecret || Secret.consumer_secret,
-	callbackURL: 'http://localhost:5000/login/twitter/return'
+	callbackURL: 'http://jdf-bookswap.herokuapp.com/login/twitter/return'
 },
 	(token, tokenSecret, profile, done)=>{
 		process.nextTick(()=>{
