@@ -15,6 +15,25 @@ module.exports = {
         jQuery: 'jquery',
         $: 'jquery',
         jquery: 'jquery'
+    	}),
+    	new webpack.optimize.UglifyJsPlugin({
+			minimize: true,
+			compress: {
+				warnings:false
+			}
+		}),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+		new CompressionPlugin({
+      		asset: "[path].gz[query]",
+      		algorithm: "gzip",
+      		test: /\.js$|\.css$|\.html$/,
+      		threshold: 10240,
+      		minRatio: 0.8
     	})
 	],
 	module: {
