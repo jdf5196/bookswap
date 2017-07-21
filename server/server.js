@@ -13,7 +13,7 @@ require('./models/book.js');
 require('./models/user.js');
 require('./twitter/twitter.js');
 const routes = require('./routes/index.js');
-const jwtSecret = 'secret';
+const jwtSecret = process.env.JWTSECRET;
 
 const app = express();
 app.use(compression());
