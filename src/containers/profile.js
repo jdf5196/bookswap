@@ -268,7 +268,7 @@ class Profile extends React.Component{
 							<label htmlFor='city'>City</label>
 							<input className='form-control' id='city' type='text' placeholder={Auth.currentUserCity()} value={Auth.currentUserCity()} ref='city' />
 							<label htmlFor='state'>State</label>
-							<input className='form-control' id='state' type='text' placeholder={Auth.currentUserState()} value={Autho.currentUserState()} ref='state' />
+							<input className='form-control' id='state' type='text' placeholder={Auth.currentUserState()} value={Auth.currentUserState()} ref='state' />
 							<input className='form-control' type='submit' className='btn btn-info' onClick={this.location.bind(this)} />
 						</div>
 						<button onClick={()=>{this.props.locationClose()}} className='btn btn-success'>Close</button>
