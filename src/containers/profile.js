@@ -179,7 +179,7 @@ class Profile extends React.Component{
 			)
 		}else{
 			return(
-				<h2>{this.props.params.id}'s' Library</h2>
+				<h2>{this.props.params.id}'s Library</h2>
 			)
 		}
 	}
