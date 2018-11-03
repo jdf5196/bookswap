@@ -131,13 +131,14 @@ router.put('/trade', Auth, (req, res)=>{
 		book.trade = req.payload.username;
 		book.save((err, book)=>{
 			if(err){res.json(err)};
-			User.findOne({_id: req.payload._id}, (err, user)=>{
+			res.json(book)
+			User.findOne({twitterUsername: req.payload.username}, (err, user)=>{
 				user.trades.push(req.body.id);
 				user.save((err, user)=>{
 					if(err){return err}
 					res.json(book)
 				});
-			})
+			});
 		})
 	})
 })
@@ -147,7 +148,7 @@ router.put('/canceltrade', Auth, (req, res)=>{
 		book.trade = '';
 		book.save((err, book)=>{
 			if(err){res.json(err)};
-			User.findOne({_id: req.payload._id}, (err, user)=>{
+			User.findOne({twitterUsername: req.payload.username}, (err, user)=>{
 				let index = user.trades.indexOf(req.body.id);
 				user.trades.splice(index, 1);
 				user.save((err, user)=>{
